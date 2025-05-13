@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner op = new Scanner(System.in);
         int opcao;
-
+        Agenda agenda = new Agenda();
 
         System.out.println("=========================================");
         System.out.println("=========================================");
@@ -24,14 +24,14 @@ public class Main {
 
             switch (opcao) {
                 case 1:
-                    AdicionarContato.criarContato();
+                    agenda.criarContato();
                     break;
                 case 2:
-                    AdicionarContato.exibirContatos();
+                    agenda.exibirContatos();
                     break;
                 case 3:
                     System.out.println("Saindo e salvando...");
-                    AdicionarContato.salvarContatoNoArquivo();
+                    agenda.salvarContatoNoArquivo();
                     break;
                 default:
                     System.out.println("Opção inválida.");
