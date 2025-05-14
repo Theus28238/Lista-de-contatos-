@@ -1,8 +1,0 @@
-Nome: Pedro
-Número: 86995195654
-Email: pedrodias@gmail.com
----------------------------
-Nome: Gustavo
-Número: 202020
-Email: pedro@gmail.com
----------------------------

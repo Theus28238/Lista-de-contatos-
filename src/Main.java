@@ -17,7 +17,8 @@ public class Main {
         do {
             System.out.println("\n1 - Adicionar contato");
             System.out.println("2 - Ver contatos");
-            System.out.println("3 - Sair e salvar");
+            System.out.println("3 - Procurar contato");
+            System.out.println("4 - Sair e salvar");
             System.out.print("Escolha: ");
             opcao = op.nextInt();
             op.nextLine();
@@ -30,6 +31,9 @@ public class Main {
                     agenda.exibirContatos();
                     break;
                 case 3:
+                   agenda.buscarContatoPorNome();
+                    break;
+                    case 4:
                     System.out.println("Saindo e salvando...");
                     agenda.salvarContatoNoArquivo();
                     break;
@@ -37,8 +41,8 @@ public class Main {
                     System.out.println("Opção inválida.");
             }
 
-        } while (opcao != 3);
-
+        } while (opcao != 4);
+        
         op.close();
     }
 }
