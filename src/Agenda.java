@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Agenda {
     private final static ArrayList<Contato> contatos = new ArrayList<Contato>();
-
+    Scanner lerScanner = new Scanner(System.in);
     // Criação de contato na classe Agenda
     public void criarContato(){
         Contato contato = new Contato();
@@ -50,26 +50,35 @@ public class Agenda {
             System.out.println("Erro ao ler o Arquivo" + e.getMessage());
         }
     }
+
+
     //MÉTODO PARA PROCURAR CONTATOS
     public void buscarContatoPorNome() {
-    Scanner DigiteNomeDoContato = new Scanner(System.in);
-    System.out.print("Digite o nome que deseja procurar: ");
-    String nomeProcurado = DigiteNomeDoContato.nextLine().toLowerCase().trim();
-    DigiteNomeDoContato.close();
+        String procurar;
+        System.out.println("Digite o contato que queria procurar");
+        procurar = lerScanner.next().toLowerCase().trim();
+        try (BufferedReader leituraDoArquivo = new BufferedReader(new FileReader(caminhoDoArquivo))){
+            String linhaler = leituraDoArquivo.readLine().toLowerCase();
+            while (linhaler != null){
+            if (linhaler.startsWith("Nome: ")){
+                String nome = linhaler.substring(5).toLowerCase().trim();
+                    if (nome.equals(procurar)){
+                        System.out.println(linhaler);
+                        System.out.println(leituraDoArquivo.readLine());
+                        System.out.println(leituraDoArquivo.readLine());
+                        System.out.println(leituraDoArquivo.readLine());
+                        return;
+                    }
+                }
+                linhaler = leituraDoArquivo.readLine();
+            }
 
-    boolean achou = false;
-    for (Contato contato : contatos) {
-        if (contato.getNome().toLowerCase().startsWith(nomeProcurado)) {
-            System.out.println("Nome: " + contato.getNome());
-            System.out.println("Número: " + contato.getNumero());
-            System.out.println("Email: " + contato.getEmail());
-            System.out.println("---------------------------");
-            achou = true; //contato encontrado
+
+
+        } catch (Exception e) {
+            System.out.println("Erro ao ler o Arquivo" + e.getMessage());
         }
-    }
-
-    if (!achou) {
-        System.out.println("Contato não encontrado.");
-    }
 }
+
+
 }

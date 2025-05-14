@@ -26,16 +26,17 @@ public class Main {
             switch (opcao) {
                 case 1:
                     agenda.criarContato();
+                    agenda.salvarContatoNoArquivo();
                     break;
                 case 2:
                     agenda.exibirContatos();
                     break;
                 case 3:
-                   agenda.buscarContatoPorNome();
+                    agenda.buscarContatoPorNome();
                     break;
                     case 4:
                     System.out.println("Saindo e salvando...");
-                    agenda.salvarContatoNoArquivo();
+
                     break;
                 default:
                     System.out.println("Opção inválida.");
