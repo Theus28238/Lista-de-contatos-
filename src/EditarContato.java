@@ -53,7 +53,6 @@ public class EditarContato {
                 } else {
                     novoConteudo.append(linha).append("\n");
                 }
-                lerNomeEditar.close();
             }
         } catch (IOException e) {
             System.out.println("Erro ao ler o arquivo: " + e.getMessage());
